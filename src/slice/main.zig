@@ -4,13 +4,15 @@ const print = std.debug.print;
 /// A slice object is essentially a pointer object accompanied by a length number i.e. fat pointer in Rust.
 /// The pointer object points to the first element in the slice, and the length number tells the
 /// zig compiler how many elements there are in this slice.
-/// Slices can be thought of as a pair of [*]T (the pointer to the data) and a usize (the element count)
+/// Slices can be thought of as a pair of `[*]T` (the pointer to the data) and a `usize` (the element count)
 pub fn main() void {
     const a = [_]u8{ 0, 1, 2, 3, 4, 5, 6, 7 };
     const slice_1 = a[0..2];
+    print("TypeOf `slice_1` {any}\n", .{@TypeOf(slice_1)});
     print("slice 0..2 {any}\n", .{slice_1});
 
     const slice_2 = a[2..];
+    print("TypeOf `slice_2` {any}\n", .{@TypeOf(slice_2)});
     print("slice 2.. {any}\n", .{slice_2});
     print("First item slice_2 len {}\n", .{slice_2[0]});
     print("slice_2 len {}\n", .{slice_2.len});
@@ -19,5 +21,6 @@ pub fn main() void {
     // a pointer anymore, and, thus, it does not support pointer operations.
     const right_boundary = 3;
     const slice_3 = a[0..right_boundary];
+    print("TypeOf `slice_3` {any}\n", .{@TypeOf(slice_3)});
     print("slice 0..right_boundary {any}\n", .{slice_3});
 }
