@@ -1,14 +1,32 @@
 {
   "version": "0.2.0",
   "configurations": [
-      {
-          "type": "lldb",
-          "request": "launch",
-          "name": "Debug",
-          "program": "${workspaceFolder}/zig-out/bin/zig-examples",
-          "args": ["/opt/homebrew/bin/zig"],
-          "cwd": "${workspaceFolder}",
-          
-      }
+    {
+        "name": "debug",
+        "type": "lldb",
+        "request": "launch",
+        "program": "${workspaceFolder}/zig-out/bin/zig-examples",
+        "args": [],
+        "cwd": "${workspaceFolder}",
+        "preLaunchTask": "zig-debug-build"
+    },
+    {
+        "name": "debug-allocator",
+        "type": "lldb",
+        "request": "launch",
+        "program": "${workspaceFolder}/.zig-cache/allocator.zig",
+        "args": ["src/allocato/main.zig"],
+        "cwd": "${workspaceFolder}",
+        "preLaunchTask": "build-allocator"
+    },
+    {
+      "name": "debug-test",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/zig-cache/o/8d3ec5647333441f99255e944dfaad5a/test",
+      "args": ["src/main.zig"],
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "zig-debug-test-build"
+  },
   ]
 }
