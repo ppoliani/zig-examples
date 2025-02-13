@@ -1,7 +1,7 @@
 const std = @import("std");
 const print = std.debug.print;
 
-const User = struct {
+pub const User = struct {
     id: u64,
     name: []const u8,
     email: []const u8,
